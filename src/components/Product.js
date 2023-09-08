@@ -1,15 +1,23 @@
 import { Button } from "react-bootstrap";
-import { useAppDispatch } from "../app/hooks";
-import { addToCart } from "../features/cartSlice";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
+import { addToCart, removeItemFromCart } from "../features/cartSlice";
+import { useLocation } from "react-router-dom";
 
 const Product = (props) => {
   const { image, title, price, rating, description } = props;
   const product = props;
+  const cartItems = props.cartItems;
   const dispatch = useAppDispatch();
+  const location = useLocation();
 
   const handleAddProduct = () => {
     console.log("Product: ", product);
     dispatch(addToCart(product));
+  };
+
+  const handleRemoveProduct = () => {
+    console.log("Product: ", product);
+    dispatch(removeItemFromCart(product));
   };
 
   return (
@@ -30,6 +38,17 @@ const Product = (props) => {
         <Button variant="primary" onClick={handleAddProduct}>
           Add to Cart
         </Button>
+        {location.pathname === "/cart" && (
+          <Button variant="danger" onClick={handleRemoveProduct}>
+            Remove from Cart
+          </Button>
+        )}
+        {cartItems.length > 0 &&
+          cartItems.find((item) => item.id === product.id) && (
+            <Button variant="danger" onClick={handleRemoveProduct}>
+              Remove from Cart
+            </Button>
+          )}
       </article>
     </section>
   );
