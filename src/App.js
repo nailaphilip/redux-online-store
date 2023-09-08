@@ -1,10 +1,10 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css';
-import Cart from './components/Cart';
-import List from './components/List';
-import StoreNavbar from './components/StoreNavbar';
+import "bootstrap/dist/css/bootstrap.min.css";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Cart from "./components/Cart";
+import List from "./components/List";
+import StoreNavbar from "./components/StoreNavbar";
 
 function App() {
   return (
