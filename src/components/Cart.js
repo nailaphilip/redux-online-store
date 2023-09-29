@@ -8,7 +8,7 @@ const Cart = () => {
 
   return (
     <Container>
-      <h1>Cart will be here</h1>
+      <h1>Products in cart</h1>
       {cartItems.length === 0 && <p>Your cart is empty</p>}
       {cartItems.map((item) => (
         <Product {...item} />
